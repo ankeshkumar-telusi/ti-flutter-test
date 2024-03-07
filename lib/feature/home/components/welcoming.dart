@@ -6,15 +6,18 @@ class Welcoming extends StatelessWidget {
     Key? key,
     required this.state,
     required this.name,
+    this.onboard=false,
   }) : super(key: key);
 
   final WelcomingStates state;
   final String name;
+  final bool? onboard;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: Theme.of(context).textTheme.displayLarge!,
+      style: (onboard==true)?Theme.of(context).textTheme.displaySmall!.copyWith(fontWeight: FontWeight.normal)!
+          :Theme.of(context).textTheme.displayLarge!,
       child: Builder(builder: (context) {
         return Row(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -32,5 +32,16 @@
   "new_message": "New message",
   "book_appointment": "Book appointment",
   "empty_reminders_message": "You don't have any reminders yet",
-  "new_appointment": "New appointment"
+  "new_appointment": "New appointment",
+  "quick_tour": "We'll take you on a quick tour of your homepage.",
+  "letgo": "Let's go!",
+  "onboard_reminder":"The first section shows your reminders. If there are any tasks requiring action from you, you'll find them here.",
+  "scroll_next_section":"Scroll to next section",
+  "onboard_appointment":"This second section gives you easy access to your upcoming appointments.",
+  "virtual_appointment":"There are direct links to your virtual appointments.",
+  "continue_text":"Continue",
+  "schedule_appointment":"You can view all your scheduled apointments via this link.",
+  "bottom_resources":"At the bottom of the page, you'll find your messages and some extra resources.",
+  "return_home":"Thats all for now!\nClick close to return to your homepage."
+
 }

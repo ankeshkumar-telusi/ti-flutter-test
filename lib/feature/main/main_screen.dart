@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 
 import '../home/home_screen_alternative.dart';
+import '../onboard/onboarding_screen.dart';
+
 
 class MainScreen extends StatefulWidget {
   static String routeName = '/';
@@ -62,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
               trailing: BlocBuilder<MainBloc, MainState>(
                 bloc: _mainBloc,
                 buildWhen: (previous, current) =>
-                    previous.defaultVersion != current.defaultVersion,
+                previous.defaultVersion != current.defaultVersion,
                 builder: (context, state) {
                   return Switch(
                     value: _mainBloc.state.defaultVersion,
@@ -75,6 +77,37 @@ class _MainScreenState extends State<MainScreen> {
               onTap: () => _mainBloc.add(
                 MainEvent.changeDashboard(
                     fullDashboard: !_mainBloc.state.defaultVersion),
+              ),
+            ),
+
+            /**
+             * create button with rounded corner
+             */
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: TextButton(
+                onPressed: () {
+
+                  /**
+                   * navigate to onboarding screen
+                   */
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => OnboardingScreen(),
+                      ));
+
+                },
+                style: Theme.of(context)
+                    .textButtonTheme
+                    .style
+                    ?.copyWith(
+                  backgroundColor: MaterialStatePropertyAll(
+                      Theme.of(context).colorScheme.background),
+                  foregroundColor: MaterialStatePropertyAll(
+                      Theme.of(context).colorScheme.primary),
+                ),
+                child: const Text('Show onboarding'),
               ),
             ),
           ],
@@ -125,7 +158,7 @@ class _MainScreenState extends State<MainScreen> {
             ],
             currentIndex: _mainBloc.state.index,
             onTap: (index) =>
-                {_mainBloc.add(MainEvent.changePage(index: index))},
+            {_mainBloc.add(MainEvent.changePage(index: index))},
           );
         },
       ),
